@@ -1,0 +1,22 @@
+<ion-row>
+  <ion-col col-2>
+    <img src="{{imageHelper.getCoinImage(coinData.id)}}" height="32" width="32">
+  </ion-col>
+  <ion-col col-6 class='vertical-center'>
+    <div><span class='symbol'>{{ coinData.symbol }}</span> | <span>{{ coinData.name }}</span></div>
+  </ion-col>
+  <ion-col col-4 class='vertical-center'>
+    <span class='symbol'>{{ coinData.price_usd }} $</span>
+  </ion-col>
+</ion-row>
+<ion-row>
+  <ion-col col-4>
+    <span class='duration'>1h: </span> <span>{{ coinData.percent_change_1h }} %</span>
+  </ion-col>
+  <ion-col col-4>
+    <span class='duration'>24h: </span> <span>{{ coinData.percent_change_24h }} %</span>
+  </ion-col>
+  <ion-col col-4>
+    <span class='duration'>7d: </span> <span>{{ coinData.percent_change_7d }} %</span>
+  </ion-col>
+</ion-row>

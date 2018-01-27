@@ -1,0 +1,8 @@
+{
+  "name": "ionic-cryptocurrency",
+  "app_id": "a6742216",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
