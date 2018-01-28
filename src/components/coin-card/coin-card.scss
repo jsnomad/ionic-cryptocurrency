@@ -1,3 +1,21 @@
 coin-card {
+  .price-down {
+    color: #ff4d4d;
+  }
 
+  .price-up {
+    color: #5faf5f;
+  }
+
+  .price-no-change {
+    color: black;
+  }
+
+  .symbol {
+    font-weight: bold;
+  }
+
+  .duration {
+    font-weight: bold;
+  }
 }
