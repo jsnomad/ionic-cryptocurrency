@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ImageHelper } from '../../helper/image.helper';
+import { IonicPage } from 'ionic-angular';
 import { CoinProvider } from '../../providers/coinmarketcap/coin.provider';
 
 @IonicPage()
@@ -10,16 +9,12 @@ import { CoinProvider } from '../../providers/coinmarketcap/coin.provider';
 })
 export class HomePage {
   private coinList: any = [];
-  constructor(
-    private navCtrl: NavController,
-    private navParams: NavParams,
-    private coinProvider: CoinProvider,
-    private imageHelper: ImageHelper
-  ) {
+  constructor(private coinProvider: CoinProvider) {
     this.loadCoin();
   }
 
-  private async loadCoin() {
+  private async loadCoin(refresher?) {
     this.coinList = await this.coinProvider.getAllCoin();
+    if (refresher) refresher.complete();
   }
 }
