@@ -1,6 +1,7 @@
 .dark-theme {
+  $dark-bg: #090f2f;
   ion-content {
-    background-color: #090f2f;
+    background-color: $dark-bg;
     color: #fff;
   }
 
@@ -8,8 +9,20 @@
     color: #fff;
   }
 
+  .bar-button-default {
+    color: #fff;
+  }
+
+  .item {
+    background-color: $dark-bg;
+  }
+
+  .label {
+    color: #fff;
+  }
+
   .header .toolbar-background {
     border-color: #ffffff;
-    background-color: #090f2f;
+    background-color: $dark-bg !important;
   }
 }
