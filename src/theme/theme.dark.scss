@@ -1,5 +1,4 @@
 .dark-theme {
-  $dark-bg: #090f2f;
   ion-content {
     background-color: $dark-bg;
     color: #fff;
@@ -23,6 +22,14 @@
 
   .header .toolbar-background {
     border-color: #ffffff;
-    background-color: $dark-bg !important;
+    background-color: $dark-bg;
+  }
+
+  .refresher-refreshing-text {
+    color: #fff;
+  }
+
+  ion-spinner * {
+    fill: #fff !important;
   }
 }
