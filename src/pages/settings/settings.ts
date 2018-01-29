@@ -8,7 +8,6 @@ import { SettingsProvider } from './../../providers/settings/settings';
   templateUrl: 'settings.html'
 })
 export class SettingsPage {
-  private selectedTheme: String;
   private isDark: boolean;
 
   constructor(
@@ -16,9 +15,12 @@ export class SettingsPage {
     public navParams: NavParams,
     private settings: SettingsProvider
   ) {
-    this.settings.getActiveTheme().subscribe(val => {
-      this.selectedTheme = val;
-      this.isDark = this.selectedTheme === 'dark-theme' ? true : false;
+    this.getActiveTheme();
+  }
+
+  private getActiveTheme() {
+    this.settings.getActiveTheme().subscribe(theme => {
+      this.isDark = theme === 'dark-theme' ? true : false;
     });
   }
 

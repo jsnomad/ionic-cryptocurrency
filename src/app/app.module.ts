@@ -16,9 +16,7 @@ import { CryptocurrencyApp } from './app.component';
 import { ImageHelper } from '../helper/image.helper';
 
 /* PROVIDER */
-import { Api } from '../providers/providers';
-import { CoinProvider } from '../providers/coinmarketcap/coin.provider';
-import { SettingsProvider } from '../providers/settings/settings';
+import { Api, CoinProvider, SettingsProvider } from '../providers/providers';
 
 /* SHARED MODULES */
 import { ComponentsModule } from '../components/components.module';

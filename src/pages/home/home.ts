@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
-import { CoinProvider } from '../../providers/coinmarketcap/coin.provider';
+import { CoinProvider } from '../../providers/providers';
 
 @IonicPage()
 @Component({

@@ -5,7 +5,7 @@ import { Api } from '../api/api';
 export class CoinProvider {
   constructor(private api: Api) {}
 
-  public getAllCoin() {
+  public getAllCoin(): Promise<ArrayBuffer> {
     return this.api.get('ticker/').toPromise();
   }
 }
