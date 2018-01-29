@@ -10,7 +10,7 @@ export class CoinCardComponent {
 
   constructor(private imageHelper: ImageHelper) {}
 
-  private getPriceColor(price: number) {
+  private getPriceColor(price: number): string {
     switch (Math.sign(price)) {
       case 1:
         return 'price-up';
