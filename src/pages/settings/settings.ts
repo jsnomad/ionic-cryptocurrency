@@ -22,7 +22,7 @@ export class SettingsPage {
     });
   }
 
-  private toggleAppTheme(t) {
+  private toggleAppTheme() {
     if (this.isDark) {
       this.settings.setActiveTheme('dark-theme');
     } else {
