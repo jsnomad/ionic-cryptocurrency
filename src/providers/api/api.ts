@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class Api {
   private url: string = 'https://api.coinmarketcap.com/v1';
 
-  constructor(public http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   public get(endpoint: string, params?: any, reqOpts?: any) {
     if (!reqOpts) {

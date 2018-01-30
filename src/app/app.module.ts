@@ -27,6 +27,12 @@ export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
+export function provideSettings(storage: Storage) {
+  return new SettingsProvider(storage, {
+    theme: 'light-theme'
+  });
+}
+
 @NgModule({
   declarations: [CryptocurrencyApp],
   imports: [
@@ -46,12 +52,12 @@ export function createTranslateLoader(http: HttpClient) {
   bootstrap: [IonicApp],
   entryComponents: [CryptocurrencyApp],
   providers: [
-    SettingsProvider,
     Api,
     CoinProvider,
     SplashScreen,
     StatusBar,
     ImageHelper,
+    { provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]

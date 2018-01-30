@@ -26,9 +26,14 @@ export class SettingsPage {
 
   private toggleAppTheme() {
     if (this.isDark) {
-      this.settings.setActiveTheme('dark-theme');
+      this.applyTheme('dark-theme');
     } else {
-      this.settings.setActiveTheme('light-theme');
+      this.applyTheme('light-theme');
     }
+  }
+
+  private applyTheme(theme: string) {
+    this.settings.setActiveTheme(theme);
+    this.settings.setValue('theme', theme);
   }
 }

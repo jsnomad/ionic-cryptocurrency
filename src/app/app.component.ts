@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Config, Nav, Platform } from 'ionic-angular';
+import { Nav, Platform } from 'ionic-angular';
 import { SettingsProvider } from './../providers/settings/settings';
 
 @Component({
@@ -19,19 +19,25 @@ export class CryptocurrencyApp {
 
   constructor(
     private platform: Platform,
-    private config: Config,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
     private settings: SettingsProvider
   ) {
-    this.subscribeActiveTheme();
-    platform.ready().then(() => {
+    this.platformReady();
+  }
+
+  private platformReady() {
+    this.platform.ready().then(() => {
+      this.initActiveTheme();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
-  private subscribeActiveTheme() {
+  private async initActiveTheme() {
+    await this.settings.load();
+    const savedTheme = await this.settings.getValue('theme');
+    this.settings.setActiveTheme(savedTheme);
     this.settings.getActiveTheme().subscribe(val => (this.selectedTheme = val));
   }
 
