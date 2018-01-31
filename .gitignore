@@ -31,6 +31,5 @@ www/
 $RECYCLE.BIN/
 
 .DS_Store
-.package-lock.json
 Thumbs.db
 UserInterfaceState.xcuserstate
