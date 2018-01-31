@@ -1,3 +1,8 @@
 {
-  "BACK_BUTTON_TEXT": "Retour"
+  "BACK_BUTTON_TEXT": "Retour",
+  "TITLE_SETTINGS": "Options",
+  "TITLE_LANGUAGE": "Langage",
+  "MENU_TITLE": "Menu",
+  "MENU_HOME": "Accueil",
+  "MENU_SETTINGS": "Options"
 }

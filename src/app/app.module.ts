@@ -29,7 +29,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
-    theme: 'light-theme'
+    theme: 'light-theme',
+    language: 'en'
   });
 }
 

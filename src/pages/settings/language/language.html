@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{ 'TITLE_LANGUAGE' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list radio-group>
+    <ion-item *ngFor="let language of languages">
+      <ion-label>{{language.name}}</ion-label>
+      <ion-radio (click)='changeLanguage(language.code)' [checked]="language.isChecked" [value]="language.code"></ion-radio>
+    </ion-item>
+  </ion-list>
+</ion-content>

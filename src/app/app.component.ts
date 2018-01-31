@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
-import { Nav, Platform } from 'ionic-angular';
+import { Config, Nav, Platform } from 'ionic-angular';
 import { SettingsProvider } from './../providers/settings/settings';
+import { TranslateService } from '@ngx-translate/core';
+import { defaultLanguage } from './app.constant';
 
 @Component({
   templateUrl: 'app.html'
@@ -12,26 +14,24 @@ export class CryptocurrencyApp {
   private selectedTheme: String;
   @ViewChild(Nav) private nav: Nav;
 
-  pages: any[] = [
-    { title: 'Home', component: 'HomePage' },
-    { title: 'Setting', component: 'SettingsPage' }
-  ];
-
   constructor(
     private platform: Platform,
     private statusBar: StatusBar,
     private splashScreen: SplashScreen,
-    private settings: SettingsProvider
+    private settings: SettingsProvider,
+    private translate: TranslateService,
+    private config: Config
   ) {
     this.platformReady();
   }
 
-  private platformReady() {
-    this.platform.ready().then(() => {
-      this.initActiveTheme();
-      this.statusBar.styleDefault();
-      this.splashScreen.hide();
-    });
+  private async platformReady() {
+    await this.platform.ready();
+    this.initLanguage();
+    this.initTranslation();
+    this.initActiveTheme();
+    this.statusBar.styleDefault();
+    this.splashScreen.hide();
   }
 
   private async initActiveTheme() {
@@ -41,7 +41,26 @@ export class CryptocurrencyApp {
     this.settings.getActiveTheme().subscribe(val => (this.selectedTheme = val));
   }
 
+  private async initLanguage() {
+    this.translate.setDefaultLang(defaultLanguage);
+    const savedLanguage = await this.settings.getValue('language');
+
+    if (savedLanguage) {
+      this.translate.use(savedLanguage);
+    } else {
+      this.translate.use(defaultLanguage);
+      this.settings.setValue('theme', defaultLanguage);
+    }
+  }
+
+  private initTranslation() {
+    // translation back button
+    this.translate.stream(['BACK_BUTTON_TEXT']).subscribe(values => {
+      this.config.set('ios', 'backButtonText', values.BACK_BUTTON_TEXT);
+    });
+  }
+
   private openPage(page) {
-    this.nav.setRoot(page.component);
+    this.nav.setRoot(page);
   }
 }

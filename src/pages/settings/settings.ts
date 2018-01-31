@@ -19,7 +19,7 @@ export class SettingsPage {
   }
 
   private getActiveTheme() {
-    this.settings.getActiveTheme().subscribe(theme => {
+    this.settings.getActiveTheme().subscribe((theme: string) => {
       this.isDark = theme === 'dark-theme' ? true : false;
     });
   }
@@ -35,5 +35,9 @@ export class SettingsPage {
   private applyTheme(theme: string) {
     this.settings.setActiveTheme(theme);
     this.settings.setValue('theme', theme);
+  }
+
+  private navigate(page: string) {
+    this.navCtrl.push(page);
   }
 }
