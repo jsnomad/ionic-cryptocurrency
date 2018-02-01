@@ -9,6 +9,9 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+/* CONSTANT */
+import { availableTheme } from './app.constant';
+
 /* APP */
 import { CryptocurrencyApp } from './app.component';
 
@@ -29,7 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
-    theme: 'light-theme',
+    theme: availableTheme.Light,
     language: 'en'
   });
 }
