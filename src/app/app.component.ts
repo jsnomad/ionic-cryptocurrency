@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Config, Nav, Platform } from 'ionic-angular';
 import { SettingsProvider } from './../providers/settings/settings';
 import { TranslateService } from '@ngx-translate/core';
-import { defaultLanguage } from './app.constant';
+import { defaultLanguage, availableTheme } from './app.constant';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,6 +39,7 @@ export class CryptocurrencyApp {
     const savedTheme = await this.settings.getValue('theme');
     this.settings.setActiveTheme(savedTheme);
     this.settings.getActiveTheme().subscribe(val => (this.selectedTheme = val));
+    if (savedTheme === availableTheme.Dark) this.statusBar.styleLightContent();
   }
 
   private async initLanguage() {

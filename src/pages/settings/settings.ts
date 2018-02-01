@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SettingsProvider } from './../../providers/settings/settings';
+import { availableTheme } from '../../app/app.constant';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @IonicPage()
 @Component({
@@ -11,24 +13,27 @@ export class SettingsPage {
   private isDark: boolean;
 
   constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private settings: SettingsProvider
+    private navCtrl: NavController,
+    private navParams: NavParams,
+    private settings: SettingsProvider,
+    private statusBar: StatusBar
   ) {
     this.getActiveTheme();
   }
 
   private getActiveTheme() {
     this.settings.getActiveTheme().subscribe((theme: string) => {
-      this.isDark = theme === 'dark-theme' ? true : false;
+      this.isDark = theme === availableTheme.Dark ? true : false;
     });
   }
 
   private toggleAppTheme() {
     if (this.isDark) {
-      this.applyTheme('dark-theme');
+      this.applyTheme(availableTheme.Dark);
+      this.statusBar.styleLightContent();
     } else {
-      this.applyTheme('light-theme');
+      this.applyTheme(availableTheme.Light);
+      this.statusBar.styleDefault();
     }
   }
 
