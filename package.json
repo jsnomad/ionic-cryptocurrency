@@ -2,7 +2,7 @@
   "name": "ionic-cryptocurrency",
   "version": "0.0.1",
   "author": "Thomas Blanc-Hector",
-  "homepage": "http://ionicframework.com/",
+  "homepage": "https://github.com/jsnomad/ionic-cryptocurrency",
   "description": "Ionic 3 Cryptocurrency App",
   "private": false,
   "scripts": {
