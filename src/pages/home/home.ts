@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { LoadingController, IonicPage } from 'ionic-angular';
 import { CoinProvider } from '../../providers/providers';
 
 @IonicPage()
@@ -11,14 +11,28 @@ export class HomePage {
   private coinList: any = [];
   private coinListFiltered: any = [];
   private searchText: string;
-  constructor(private coinProvider: CoinProvider) {
+  private loading: any;
+
+  constructor(
+    private coinProvider: CoinProvider,
+    private loadingCtrl: LoadingController
+  ) {
+    this.init();
     this.loadCoin();
   }
 
+  private init() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+  }
+
   private async loadCoin(refresher?) {
+    this.loading.present();
     this.coinList = await this.coinProvider.getAllCoin();
     this.coinListFiltered = this.coinList;
     if (refresher) refresher.complete();
+    this.loading.dismiss();
   }
 
   private filterCoins(val: any) {
