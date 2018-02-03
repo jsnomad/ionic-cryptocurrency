@@ -9,12 +9,34 @@ import { CoinProvider } from '../../providers/providers';
 })
 export class HomePage {
   private coinList: any = [];
+  private coinListFiltered: any = [];
+  private searchText: string;
   constructor(private coinProvider: CoinProvider) {
     this.loadCoin();
   }
 
   private async loadCoin(refresher?) {
     this.coinList = await this.coinProvider.getAllCoin();
+    this.coinListFiltered = this.coinList;
     if (refresher) refresher.complete();
+  }
+
+  private filterCoins(val: any) {
+    return function(coin: any) {
+      return (
+        coin.name.toLowerCase().indexOf(val.toLowerCase()) > -1 ||
+        coin.symbol.toLowerCase().indexOf(val.toLowerCase()) > -1
+      );
+    };
+  }
+
+  private onInputSearch(ev: any) {
+    if (this.coinList) {
+      this.coinListFiltered = this.coinList;
+      let val = ev.target.value;
+      if (val && val.trim() !== '') {
+        this.coinListFiltered = this.coinList.filter(this.filterCoins(val));
+      }
+    }
   }
 }
