@@ -17,18 +17,18 @@ export class HomePage {
     private coinProvider: CoinProvider,
     private loadingCtrl: LoadingController
   ) {
-    this.init();
     this.loadCoin();
   }
 
-  private init() {
+  private initLoading() {
     this.loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
   }
 
   private async loadCoin(refresher?) {
-    this.loading.present();
+    this.initLoading();
+    await this.loading.present();
     this.coinList = await this.coinProvider.getAllCoin();
     this.coinListFiltered = this.coinList;
     if (refresher) refresher.complete();
