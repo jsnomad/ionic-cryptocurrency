@@ -4,6 +4,7 @@ import { LanguagePage } from './language';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { createTranslateLoader } from '../../../app/app.module';
+import { ComponentsModule } from '../../../components/components.module';
 
 @NgModule({
   declarations: [LanguagePage],
@@ -15,7 +16,8 @@ import { createTranslateLoader } from '../../../app/app.module';
         useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
-    })
+    }),
+    ComponentsModule
   ]
 })
 export class LanguagePageModule {}

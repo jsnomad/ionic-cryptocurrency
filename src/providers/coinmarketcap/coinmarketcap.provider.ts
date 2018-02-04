@@ -6,6 +6,6 @@ export class CoinProvider {
   constructor(private api: Api) {}
 
   public getAllCoin(): Promise<ArrayBuffer> {
-    return this.api.get('ticker/').toPromise();
+    return this.api.get('ticker/?convert=EUR').toPromise();
   }
 }

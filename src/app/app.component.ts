@@ -27,6 +27,7 @@ export class CryptocurrencyApp {
 
   private async platformReady() {
     await this.platform.ready();
+    await this.settings.load();
     this.initLanguage();
     this.initTranslation();
     this.initActiveTheme();
@@ -35,7 +36,6 @@ export class CryptocurrencyApp {
   }
 
   private async initActiveTheme() {
-    await this.settings.load();
     const savedTheme = await this.settings.getValue('theme');
     this.settings.setActiveTheme(savedTheme);
     this.settings.getActiveTheme().subscribe(val => (this.selectedTheme = val));

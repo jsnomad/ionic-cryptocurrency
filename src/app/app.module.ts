@@ -33,7 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
     theme: availableTheme.Light,
-    language: 'en'
+    language: 'en',
+    devise: 'usd'
   });
 }
 

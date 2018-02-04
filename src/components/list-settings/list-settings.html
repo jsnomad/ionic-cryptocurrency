@@ -1,0 +1,6 @@
+<ion-list radio-group>
+  <ion-item *ngFor="let value of values">
+    <ion-label>{{value.name}}</ion-label>
+    <ion-radio (click)='save(value.code)' [checked]="value.isChecked"></ion-radio>
+  </ion-item>
+</ion-list>
