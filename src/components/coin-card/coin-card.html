@@ -6,7 +6,7 @@
     <div><span class='bold'>{{ coinData.symbol }}</span> | <span>{{ coinData.name }}</span></div>
   </ion-col>
   <ion-col col-4 class='vertical-center'>
-    <span class='bold'>{{ coinData.price_usd }} $</span>
+    <span class='bold'>{{ priceHelper.getPriceByDevise(coinData) }} {{symbol}}</span>
   </ion-col>
 </ion-row>
 <ion-row>

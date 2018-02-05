@@ -23,8 +23,8 @@ export class LanguagePage {
     this.languages = availableLanguages;
   }
 
-  private async changeLanguage(selectedLanguage: string) {
-    this.translate.use(selectedLanguage);
+  private async changeLanguage(selectedLanguage: any) {
+    this.translate.use(selectedLanguage.code);
     await this.settingsProvider.setValue('language', selectedLanguage);
   }
 }

@@ -19,7 +19,7 @@ export class DevisePage {
     this.devises = availableDevise;
   }
 
-  private async changeDevise(selectedLanguage: string) {
-    await this.settingsProvider.setValue('devise', selectedLanguage);
+  private async changeDevise(selectedDevise: string) {
+    await this.settingsProvider.setValue('devise', selectedDevise);
   }
 }

@@ -32,17 +32,15 @@ export class ListSettingsComponent {
 
   private async init() {
     const currentValue = await this.settingsProvider.getValue(this.keyDB);
-    this.values = this.availableSettings.map(lang => {
-      return {
-        code: lang.code,
-        name: lang.name,
-        isChecked: this.isChecked(currentValue, lang.code)
-      };
+    this.values = this.availableSettings.map((setting: any) => {
+      return Object.assign(setting, {
+        isChecked: this.isChecked(currentValue, setting.code)
+      });
     });
   }
 
-  private isChecked(currentValue: string, value: string) {
-    return currentValue === value;
+  private isChecked(currentValue: any, value: string) {
+    return currentValue.code === value;
   }
 
   private async save(selectedValue) {

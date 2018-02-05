@@ -47,6 +47,10 @@ export class SettingsProvider {
     });
   }
 
+  public getCacheValue(key: string) {
+    return this.settings[key];
+  }
+
   private mergeDefaults(defaults: any) {
     for (let k in defaults) {
       if (!(k in this.settings)) {

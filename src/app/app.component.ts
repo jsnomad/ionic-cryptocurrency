@@ -47,7 +47,7 @@ export class CryptocurrencyApp {
     const savedLanguage = await this.settings.getValue('language');
 
     if (savedLanguage) {
-      this.translate.use(savedLanguage);
+      this.translate.use(savedLanguage.code);
     } else {
       this.translate.use(defaultLanguage);
       this.settings.setValue('theme', defaultLanguage);

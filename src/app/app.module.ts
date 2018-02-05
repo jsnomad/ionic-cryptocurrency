@@ -17,6 +17,7 @@ import { CryptocurrencyApp } from './app.component';
 
 /* HELPER */
 import { ImageHelper } from '../helper/image.helper';
+import { PriceHelper } from '../helper/price.helper';
 
 /* PROVIDER */
 import { Api, CoinProvider, SettingsProvider } from '../providers/providers';
@@ -33,8 +34,15 @@ export function createTranslateLoader(http: HttpClient) {
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
     theme: availableTheme.Light,
-    language: 'en',
-    devise: 'usd'
+    devise: {
+      code: 'usd',
+      name: 'Dollar',
+      symbol: '$'
+    },
+    language: {
+      code: 'en',
+      name: 'English'
+    }
   });
 }
 
@@ -62,6 +70,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     ImageHelper,
+    PriceHelper,
     { provide: SettingsProvider, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler }
