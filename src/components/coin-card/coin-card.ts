@@ -21,7 +21,6 @@ export class CoinCardComponent {
 
   private getSymbol() {
     const devise = this.settingsProvider.getCacheValue('devise');
-    console.log(devise);
     this.symbol = devise.symbol;
   }
 

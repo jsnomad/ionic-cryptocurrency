@@ -50,7 +50,7 @@ export class CryptocurrencyApp {
       this.translate.use(savedLanguage.code);
     } else {
       this.translate.use(defaultLanguage);
-      this.settings.setValue('theme', defaultLanguage);
+      this.settings.setValue('language', defaultLanguage);
     }
   }
 
