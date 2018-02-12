@@ -47,6 +47,10 @@ npm run build:android
 * [Ionic](https://github.com/ionic-team/ionic) - Hybrid mobile app framework
 * [CoinMarketCap API](https://coinmarketcap.com/api/) - Cryptocurrency Market Capitalizations
 
+## Inspiration
+
+* [wesharehoodies](https://github.com/wesharehoodies/react-native-redux-crypto-tracker) - react-native-redux-crypto-tracker
+
 ## License
 
 This project is licensed under the GNU GPLv3 License - see the [LICENSE.md](LICENSE.md) file for details
