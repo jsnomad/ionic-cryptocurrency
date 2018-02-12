@@ -10,7 +10,6 @@ export class ListSettingsComponent {
   private parent: any;
   private keyDB: any;
   private availableSettings: any[];
-
   private values: any = [];
 
   constructor(private settingsProvider: SettingsProvider) {}

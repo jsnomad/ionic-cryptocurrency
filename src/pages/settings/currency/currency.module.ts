@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { DevisePage } from './devise';
+import { CurrencyPage } from './currency';
 import { ComponentsModule } from '../../../components/components.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [DevisePage],
+  declarations: [CurrencyPage],
   imports: [
-    IonicPageModule.forChild(DevisePage),
+    IonicPageModule.forChild(CurrencyPage),
     ComponentsModule,
     TranslateModule.forChild()
   ]
 })
-export class DevisePageModule {}
+export class CurrencyPageModule {}

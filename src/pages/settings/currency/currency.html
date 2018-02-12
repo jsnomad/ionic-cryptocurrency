@@ -1,0 +1,9 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{ 'TITLE_CURRENCY' | translate }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <list-settings [exec]="{fctToExectute:changeCurrency, thisParent: this, keyDB:'currency'}" [dataSetting]='currencies'></list-settings>
+</ion-content>

@@ -5,8 +5,8 @@ import { SettingsProvider } from '../providers/settings/settings';
 export class PriceHelper {
   constructor(private settingsProvider: SettingsProvider) {}
 
-  public getPriceByDevise(coin: any) {
-    const currentDevise = this.settingsProvider.getCacheValue('devise');
-    return coin['price_' + currentDevise.code];
+  public getPriceByCurrency(coin: any) {
+    const currentCurrency = this.settingsProvider.getCacheValue('currency');
+    return coin['price_' + currentCurrency.code];
   }
 }

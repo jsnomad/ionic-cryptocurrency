@@ -11,7 +11,7 @@ export const availableLanguages = [
 
 export const defaultLanguage = 'en';
 
-export const availableDevise = [
+export const availableCurrency = [
   {
     code: 'usd',
     name: 'Dollar',
@@ -24,7 +24,7 @@ export const availableDevise = [
   }
 ];
 
-export const defaultDevise = 'usd';
+export const defaultCurrency = 'usd';
 
 export enum availableTheme {
   Dark = 'dark-theme',

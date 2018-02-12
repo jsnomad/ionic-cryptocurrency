@@ -34,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
 export function provideSettings(storage: Storage) {
   return new SettingsProvider(storage, {
     theme: availableTheme.Light,
-    devise: {
+    currency: {
       code: 'usd',
       name: 'Dollar',
       symbol: '$'

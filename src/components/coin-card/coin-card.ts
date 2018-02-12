@@ -20,8 +20,8 @@ export class CoinCardComponent {
   }
 
   private getSymbol() {
-    const devise = this.settingsProvider.getCacheValue('devise');
-    this.symbol = devise.symbol;
+    const currency = this.settingsProvider.getCacheValue('currency');
+    this.symbol = currency.symbol;
   }
 
   private getPriceColor(price: number): string {
