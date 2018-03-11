@@ -46,6 +46,7 @@ npm run build:android
 
 * [Ionic](https://github.com/ionic-team/ionic) - Hybrid mobile app framework
 * [CoinMarketCap API](https://coinmarketcap.com/api/) - Cryptocurrency Market Capitalizations
+* [Cryptocurrency Icons](https://github.com/cjdowner/cryptocurrency-icons) - A set of icons for all the main cryptocurrencies
 
 ## Inspiration
 
